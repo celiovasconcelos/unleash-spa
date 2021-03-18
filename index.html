@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script>
+      //--------- PRIVATE -----------
+
+      var api = "http://localhost:4242/api/client/features";
+
+      var cacheKey = "unleash-spa-cache";
+
+      setInterval(function () {
+        requestPrivate();
+      }, 6000);
+
+      async function requestPrivate() {
+        var response = await fetch(api);
+        if (response.status == 200) {
+          var text = await response.text();
+          localStorage.setItem(cacheKey, text);
+          return text;
+        }
+      }
+
+      function isEnabledPrivate(flag, cache) {
+        if (!cache) {
+          return true; //Hard decision! Returns true if it was not possible to retrieve information from cache or API.
+        }
+        var features = JSON.parse(cache).features;
+        return (
+          features.filter(function (feature) {
+            return (
+              feature.name == flag &&
+              feature.enabled == true &&
+              feature.strategies.filter(function (strategy) {
+                return (
+                  strategy.name == "applicationHostname" &&
+                  strategy.parameters.hostNames.indexOf(
+                    window.location.hostname
+                  ) != -1
+                );
+              }).length > 0
+            );
+          }).length > 0
+        );
+        return false;
+      }
+
+      //--------- API -----------
+
+      async function isEnabled(flag) {
+        var cache = localStorage.getItem(cacheKey) || (await requestPrivate());
+        return isEnabledPrivate(flag, cache);
+      }
+
+      //--------- TEST -----------
+
+      isEnabled("webcam").then(function (enabled) {
+        console.log(enabled);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Unleash custom JS client</h1>
+  </body>
+</html>
