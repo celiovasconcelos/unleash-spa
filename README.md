@@ -1,6 +1,8 @@
+## Motivation
+
 The [Unleash](https://github.com/Unleash/unleash) feature flag project has no free JS cliente.
 
-There is a [JS cliente](https://github.com/unleash-hosted/unleash-proxy-client-js) that works only with [Unleash hosted](https://www.unleash-hosted.com/articles/the-unleash-proxy)
+There is a [JS cliente](https://github.com/unleash-hosted/unleash-proxy-client-js) that works only with [Unleash Hosted Proxy](https://www.unleash-hosted.com/articles/the-unleash-proxy).
 
 This project uses the standard API to enable feature flags to JS.
 
@@ -19,4 +21,4 @@ docker run -d -p 4242:4242 -e BASIC_AUTH_NAME=celio -e BASIC_AUTH_PASS=123 -e DA
 
 ## JS Client
 
-In the [index.hml](index.html) file there is a sample implementation for the **applicationHostname** strategy.
+Take a look at the [index.html](index.html) file to see a sample implementation for the **applicationHostname** strategy.
