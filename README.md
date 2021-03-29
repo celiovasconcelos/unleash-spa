@@ -1,8 +1,8 @@
 ## Motivation
 
-The [Unleash](https://github.com/Unleash/unleash) feature flag project has no free JS cliente.
+The [Unleash](https://github.com/Unleash/unleash) feature flag project has no free JS client.
 
-There is a [JS cliente](https://github.com/unleash-hosted/unleash-proxy-client-js) that works only with [Unleash Hosted Proxy](https://www.unleash-hosted.com/articles/the-unleash-proxy).
+There is a [JS client](https://github.com/unleash-hosted/unleash-proxy-client-js) that works only with [Unleash Hosted Proxy](https://www.unleash-hosted.com/articles/the-unleash-proxy).
 
 This project uses the standard API to enable feature flags to JS.
 
