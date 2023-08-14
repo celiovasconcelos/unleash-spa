@@ -9,7 +9,7 @@ This project uses the standard API to enable feature flags to JS.
 ## Server
 
 - CORS was enabled
-- The admin API as secured
+- The admin API was secured
 
 ```bash
 docker build -t unleash-spa .
